@@ -1,0 +1,49 @@
+#include <stdio.h>
+int main()
+{
+  int array[20],mid,first,last,data,n,check=0,i;
+  printf("Enter limit");
+  scanf("%d",&n);
+ 
+ printf("Enter the sorted array elements in ascending order");
+ for(i=0;i<n;i++)
+ {
+ scanf("%d",&array[i]);
+ }
+ printf("\nArray is=>");
+
+for(i=0;i<n;i++)
+{
+	printf("[  %d  ]",array[i]);
+}
+
+printf("\nEnter the element to be search");
+
+scanf("%d",&data);
+
+first=0;
+last=n;
+while(data !=' '){
+ mid=(first+last)/2;
+
+if(array[mid]==data){
+  check=1;
+   printf("\nThe element is found at %d",mid+1);
+ break;
+}
+if(array[mid] < data)
+{
+  first=mid+1;
+}
+if(array[mid] > data){
+ 
+ last=mid-1;
+} 
+}
+if(check==0){
+  printf("\nThe element is not exist");
+}
+}
+
+
+

@@ -1,0 +1,38 @@
+#include<stdio.h>
+
+void main()
+
+{
+	int array[20],limit,i,data,pos,check=0;
+	
+	printf("Enter the limit");
+	scanf("%d",&limit);
+	
+	printf("\nEnter the array elements");
+	for(i=0;i<limit;i++)
+	{
+		scanf("%d",&array[i]);
+	}
+	printf("\nEnter the data for search");
+	scanf("%d",&data);
+	printf("\nArray =>");
+	for(i=0;i<limit;i++)
+	{
+		printf("[%d]",array[i]);
+	}
+	
+	for(i=0;i<limit;i++)
+	{
+		if(array[i]==data)
+		{
+			check=1;
+			printf("\nThe %d found at %d",data,i+1);
+			break;
+		}
+	}
+	if(check==0)
+	{
+		printf("\nThe %d is not exist",data);
+	}
+		
+}

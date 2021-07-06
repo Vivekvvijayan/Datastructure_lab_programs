@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+int smallest(int arr[], int k, int n);
+
+int selection_sort(int array[],int n);
+
+int main() {
+	int arr[20], i, n;
+	printf("\n Enter the limit: ");
+	scanf("%d", &n);
+	printf("\n Enter the elements of the array: ");
+	for (i = 0; i < n; i++)
+	{
+		scanf("%d", &arr[i]);
+	}
+	printf("\n The array before sorting: \n");
+	for (i = 0; i < n; i++)
+		printf("[ %d]\t", arr[i]);
+	selection_sort(arr, n);
+
+	printf("\n The sorted array is=>\n");
+	for (i = 0; i < n; i++)
+		printf(" [%d]", arr[i]);
+}
+
+int smallest(int arr[], int k, int n) {
+	int small, j, pos;
+	small = arr[k];
+	pos = k;
+	for (j = k + 1; j < n; j++)
+	{
+		if (small > arr[j])
+		{
+			small = arr[j];
+			pos = j;
+		}
+	}
+	return pos;
+}
+
+	
+
+
+int selection_sort(int array[], int n) {
+	int i, pos, temp;
+	for (i = 0; i < n; i++)
+	{
+		pos = smallest(array, i, n);
+
+		temp = array[i];
+		array[i] = array[pos];
+		array[pos] = temp;
+	}
+	return 0;
+}
