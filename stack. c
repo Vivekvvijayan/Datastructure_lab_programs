@@ -1,0 +1,139 @@
+#include<stdio.h>
+#define max 20
+
+
+	int top=-1,data,choice,stack[max];
+
+
+int push(int data);
+
+int pop();
+
+int peek();
+
+void display();
+
+int push(int data)
+{
+	
+	if(top==max-1){
+		
+		printf("\nOverFlow!!!!");
+		return 0;
+		
+	}
+	else{
+		top+=1;
+		stack[top]=data;
+		printf("\nAdded=>%d",data);
+		return 1;	
+		}	
+}
+
+int pop()
+{
+	if(top==-1)
+	{
+		printf("\nUnderflow!!!!");
+		
+		return 0;
+		
+	}
+	else
+	{
+		int temp=stack[top];
+		
+		top=top-1;
+		
+		printf("\nDeleted =>%d",temp);
+		
+		return 1;
+	}
+}
+
+int peek(){
+	if(top!=-1)
+	
+	printf("\nThe peek =>%d",stack[top]);
+	
+	else printf("\nStack is empty");
+	
+	return 1;
+}
+
+void display()
+{
+	
+	printf("\t\t\nStack=>");
+	for(int i=0;i<=top;i++)
+	{
+		printf("[%d]",stack[i]);
+	}
+}
+
+
+void main()
+
+{
+	
+
+	
+	
+	do{
+		
+		printf("\t\t\n\n######Menu of Operation######\n");
+		
+		printf("\t\t1.Push\n");
+		printf("\t\t2.Pop\n");
+		printf("\t\t3.Peek\n");
+		printf("\t\t4.Display stack\n");
+		
+		printf("\t\t5.Exit");
+		
+		printf("\n\nEnter the choice=>");
+		scanf("%d",&choice);
+		
+		switch(choice)
+		{
+			case 1:
+			
+			printf("\nEnter the data");
+			
+			scanf("%d",&data);
+			
+			push(data);
+			break;
+			
+			case 2:
+			pop();
+			break;
+			
+			case 3:
+			peek();
+			break;
+			
+			case 4:
+			
+			display();
+			break;
+			
+			case 5:
+			
+			printf("###EXITED  THANK YOU####");
+			
+			break;
+			
+			default :
+			
+			printf("\nInvalid operation!!!!");
+			break;
+			
+			
+		
+		}
+		
+       	
+	}while(choice != 5);
+	
+	
+}
