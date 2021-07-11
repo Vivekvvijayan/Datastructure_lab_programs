@@ -1,0 +1,126 @@
+#include<stdio.h>
+#define MAX 8
+
+int queue[MAX],front=-1,rear=-1;
+
+
+
+void enqueue(int data)
+{
+	if(rear==MAX-1)
+	{
+		printf("\n!!queue is full");
+		
+	}
+	
+	else
+	{
+		if(front==-1)
+		{ front =0;}
+	
+			
+		rear++;
+		
+		queue[rear]=data;
+		printf("\nadded =>%d\n",data);	
+	
+		
+	}
+	
+	
+	
+}
+void display(){
+	
+	int i;
+	if(front==-1||front>rear) printf("\nQueue is empty!!!");
+	else{
+	printf("\nThe final queue is=>");
+	
+	for(i=front;i<=rear;i++)
+	
+	{
+		
+		printf("[%d]",queue[i]);
+		printf(" ");
+		
+	}
+
+
+}
+}
+
+void dequeue()
+{
+	
+	if(front==-1||front>rear) printf("\nqueue is underflow");
+	
+	
+	else {
+		
+		printf("\ndeleted=> %d\n",queue[front]);
+		front++;
+		
+		
+	}
+	
+	
+}
+
+void main()
+{
+	
+	int data,choice;
+	
+	do{
+	
+		printf("\n\n\t###MENU OF QUEUE OPERATION###");
+		
+		printf("\n\t\t1.INSERT\n");
+			printf("\n\t\t2.DETETE\n");
+				printf("\n\t\t3.DISPLAY\n");
+				printf("\n\t\t4.EXIT\n");
+				
+				printf("\n\t\tSELECT OPERATION=>");
+				
+				scanf("%d",&choice);
+				
+				switch(choice)
+				{
+					case 1:
+					
+					printf("\n\t\t Enter data to insert");
+					
+					scanf("%d",&data);
+					
+					enqueue(data);
+					break;
+					
+					case 2:
+					
+					dequeue();
+					break;
+					
+					case 3:
+					
+					display();
+					
+					break;
+					
+					case 4:
+					
+					printf("###You  exited......###");
+					
+					break;
+					
+				default:
+					printf("###  Invalid operation!!!!");
+					break;
+						
+					
+				}
+				
+	}while(choice!=4);
+		
+		
+}
